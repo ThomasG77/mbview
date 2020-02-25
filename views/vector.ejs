@@ -56,10 +56,25 @@
 var center = [<%= center %>];
 center = [center[0], center[1]];
 
-mapboxgl.accessToken = '<%= accessToken %>';
 var map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/mapbox/<%= basemap %>-v9',
+  style: {
+    "version": 8,
+    "sources": {
+      "raster-tiles": {
+        "type": "raster",
+        "tiles": ["<%= urltiles %>"],
+        "tileSize": 256
+      }
+    },
+    "layers": [{
+      "id": "simple-tiles",
+      "type": "raster",
+      "source": "raster-tiles",
+      "minzoom": 0,
+      "maxzoom": 20
+    }]
+  },
   center: center,
   zoom: <%= zoom %>,
   hash: true,

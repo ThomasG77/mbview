@@ -32,14 +32,12 @@ test('MBView.serve', (t) => {
   t.plan(8);
 
   const params = {
-    basemap: 'dark',
     mbtiles: [
       __dirname + '/../examples/baja-highways.mbtiles',
       __dirname + '/fixtures/twolayers.mbtiles',
       __dirname + '/fixtures/038.mbtiles'
     ],
-    port: 9000,
-    accessToken: 'pk.foo.bar'
+    port: 9000
   };
 
   MBView.serve(params, (err, config) => {
