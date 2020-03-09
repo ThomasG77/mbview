@@ -32,12 +32,13 @@ const params = {
   center: argv.center || [-122.42, 37.75],
   mbtiles: mbtiles,
   port: argv.port || 3000,
+  host: argv.host || 'http://localhost',
   zoom: 12,
   quiet: argv.q || argv.quiet,
   urltiles: argv.urltiles || 'http://tile.openstreetmap.org/{z}/{x}/{y}.png'
 };
 
 MBView.serve(params, (err, config) => {
-  console.log('Listening on http://localhost:' + config.port);
-  if (!argv.n) open('http://localhost:' + config.port);
+  console.log('Listening on ' + config.host + ':' + config.port);
+  if (!argv.n) open(config.host + ':' + config.port);
 });

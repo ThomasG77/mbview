@@ -80,7 +80,7 @@ module.exports = {
       });
     });
 
-    config.server = app.listen(config.port, () => {
+    config.server = app.listen(config.port, config.host, () => {
       onListen(null, config);
     });
   }
