@@ -32,7 +32,7 @@ const params = {
   center: argv.center || [-122.42, 37.75],
   mbtiles: mbtiles,
   port: argv.port || 3000,
-  host: argv.host || 'http://localhost',
+  host: argv.host || 'localhost',
   zoom: 12,
   quiet: argv.q || argv.quiet,
   urltiles: argv.urltiles || 'http://tile.openstreetmap.org/{z}/{x}/{y}.png'
